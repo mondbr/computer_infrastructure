@@ -23,7 +23,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-    # Step 2: Ensure weather.sh is executable and run it
+    # Step 3: Ensure weather.sh is executable and run it
       - name: Run weather.sh script
         run: |
           chmod +x weather.sh
