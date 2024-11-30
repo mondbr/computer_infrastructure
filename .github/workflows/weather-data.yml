@@ -10,7 +10,6 @@ permissions:
 jobs:
   run-weather-script:
     runs-on: ubuntu-latest  # Use the latest Ubuntu virtual machine
-
     steps:
     # Step 1: Checking wget and curl versions
     - name: Test wget # checking the version as it's usually pre-installed on Ubuntu
