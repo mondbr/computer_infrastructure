@@ -6,11 +6,14 @@ on:
     - cron: '0 10 * * *'
   workflow_dispatch:  # Allows manual trigger event to test the workflow
 permissions:
-    contents: write # Grant write permissions to push changes into repository
+  
+  contents: write # Grant write permissions to push changes into repository
+
 jobs:
-    run-weather-script:
-      runs-on: ubuntu-latest  # Use the latest Ubuntu virtual machine
-      steps:
+  run-weather-script:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu virtual machine
+
+    steps:
     # Step 1: Checking wget and curl versions
       - name: Test wget # checking the version as it's usually pre-installed on Ubuntu
         run: wget --version
