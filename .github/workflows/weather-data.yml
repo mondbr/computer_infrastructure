@@ -1,0 +1,33 @@
+name: Run Weather Script
+
+on:
+  schedule:
+    # Runs at 10 AM UTC, which corresponds to 10 AM GMT during winter time
+    - cron: '0 10 * * *'
+  workflow_dispatch:  # Allows manual trigger event to test the workflow
+
+jobs:
+  run-weather-script:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu virtual machine
+
+    steps:
+    # Step 1: Checkout the repository
+    - name: Checkout repository
+      uses: actions/checkout@v4  # This action clones the repo https://github.com/actions/checkout
+
+    
+    # Step 2: Make weather.sh executable and run it
+    - name: Run weather.sh script
+      run: |
+        chmod +x ./weather.sh   # Ensure the script is executable
+        ./weather.sh            # Run the script
+
+    # Step 3: Commit and push changes
+    - name: Commit and push changes
+      run: |
+        git config --global user.name "mondbr"  # Set a username for commits
+        git config --global user.email "G00439323@atu.ie"  # Set an email for commits
+
+        # Check if there are changes to commit
+        git add .   # Stage changes
+        git diff --quiet || (git commit -m "Update weather data" && git push)  # Commit and push if changes exist
