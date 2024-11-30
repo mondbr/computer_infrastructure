@@ -30,4 +30,5 @@ jobs:
 
         # Check if there are changes to commit
         git add .   # Stage changes
-        git diff --quiet || (git commit -m "Update weather data" && git push)  # Commit and push if changes exist
+        git commit -m "Update weather data" # Commit and push if changes exist
+        git push
