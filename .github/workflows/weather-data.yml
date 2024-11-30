@@ -32,7 +32,6 @@ jobs:
           chmod +x weather.sh
           ./weather.sh
 
-    # Step 4: Commit and push changes if any
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
