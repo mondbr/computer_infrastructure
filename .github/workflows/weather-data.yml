@@ -8,38 +8,38 @@ on:
 permissions:
     contents: write # Grant write permissions to push changes into repository
 jobs:
-  run-weather-script:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu virtual machine
-    steps:
+    run-weather-script:
+      runs-on: ubuntu-latest  # Use the latest Ubuntu virtual machine
+      steps:
     # Step 1: Checking wget and curl versions
-    - name: Test wget # checking the version as it's usually pre-installed on Ubuntu
-      run: wget --version
+      - name: Test wget # checking the version as it's usually pre-installed on Ubuntu
+        run: wget --version
 
-    -name: Test curl # checking the version as it's usually pre-installed on Ubuntu
-     run: curl --version
+      - name: Test curl # checking the version as it's usually pre-installed on Ubuntu
+        run: curl --version
 
 
     # Step 2: Checkout the repository
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
     # Step 2: Ensure weather.sh is executable and run it
-    - name: Run weather.sh script
-      run: |
-        chmod +x weather.sh
-        ./weather.sh
+      - name: Run weather.sh script
+        run: |
+          chmod +x weather.sh
+          ./weather.sh
 
     # Step 4: Commit and push changes if any
-    - name: Commit and push changes
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git config --global user.name "mondbr"
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "mondbr"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
         
         # Stage only if there are changes
-        git add .
-        git commit -m "Update weather data" ||
-        echo "No changes to commit"
-        git push
+          git add .
+          git commit -m "Update weather data" ||
+          echo "No changes to commit"
+          git push
         
