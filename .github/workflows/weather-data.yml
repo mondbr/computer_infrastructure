@@ -5,33 +5,33 @@ on:
     # Runs at 10 AM UTC
     - cron: '0 10 * * *'
   workflow_dispatch:  # Allows manual trigger event to test the workflow
+
 permissions:
-  
-  contents: write # Grant write permissions to push changes into repository
+  contents: write  # Grant write permissions to push changes into repository
 
 jobs:
   run-weather-script:
     runs-on: ubuntu-latest  # Use the latest Ubuntu virtual machine
 
     steps:
-    # Step 1: Checking wget and curl versions
-      - name: Test wget # checking the version as it's usually pre-installed on Ubuntu
+      # Step 1: Checking wget and curl versions
+      - name: Test wget  # Checking the version as it's usually pre-installed on Ubuntu
         run: wget --version
 
-      - name: Test curl # checking the version as it's usually pre-installed on Ubuntu
+      - name: Test curl  # Checking the version as it's usually pre-installed on Ubuntu
         run: curl --version
 
-
-    # Step 2: Checkout the repository
+      # Step 2: Checkout the repository
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4  # https://github.com/actions/checkout
 
-    # Step 3: Ensure weather.sh is executable and run it
+      # Step 3: Ensure weather.sh is executable and run it
       - name: Run weather.sh script
         run: |
           chmod +x weather.sh
           ./weather.sh
-          
+
+      # Step 4: Commit and push changes if any
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -39,9 +39,9 @@ jobs:
           git config --global user.name "mondbr"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
         
-        # Stage only if there are changes
+          # Stage only if there are changes
           git add .
-          git commit -m "Update weather data" ||
-          echo "No changes to commit"
+          git commit -m "Update weather data" 
           git push
+
         
