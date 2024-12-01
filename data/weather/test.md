@@ -1,1 +1,0 @@
-This file is created to allow 'data' folder to be pushed into GitHub Repository
