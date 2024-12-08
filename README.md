@@ -101,7 +101,9 @@ This ensures each file is uniquely named with a timestamp.
 
 ### Project
 - **Goal**: Automate the `weather.sh` script using GitHub Actions:
-- **Summary of actions**: 
+- **Commands used**: Full details are available in [weather-data.yml](https://github.com/mondbr/computer_infrastructure/blob/main/.github/workflows/weather-data.yml). 
+
+- **Summary of actions**:
 
 1. Create GitHub Actions Workflow:
     - In my repository, I created a `.github/workflows/` folder
