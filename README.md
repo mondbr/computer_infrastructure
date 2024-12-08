@@ -53,7 +53,7 @@ cat formatted.txt
 ```
 The `cat` command is used to verify the content.
 
-### Task 4: Formatting Timestamps
+### Task 4: Create Timestamped Files
 - **Goal**: Create empty files with timestamped names in the format `YYYYmmdd_HHMMSS.txt.`
 - **Commands used**:
 
