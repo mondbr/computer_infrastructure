@@ -140,7 +140,6 @@ This ensures each file is uniquely named with a timestamp.
 
 My name is Monika Dabrowska and I am an [ATU](https://www.atu.ie/) student of third semester of the Computer Infrastructure module on the Higher Diploma in Data Analytics course during Winter 2024/25.
 
-I don't have any prevoius programming experience nor knowledge of basing coding, so I am using multiple sources and references to help me to complete the assignments. 
 
 If you wish to contact me directly, please email me @ mondbr133@gmail.com
 
