@@ -36,7 +36,7 @@ GitHub Account: You need a GitHub account. If you don't have one, create it at [
 - Click on the green `<>Code` button
 - Select `Create codespace on main` 
 
-<img src="/workspaces/computer_infrastructure/codespaces.png" width=20% height=20%> 
+<img src="https://github.com/mondbr/computer_infrastructure/blob/main/codespaces.png" width=20% height=20%> 
 
 - This will open a new cloud-based development environment in your browser. You can interact with it just like a local development environment:
 
