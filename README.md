@@ -1,3 +1,5 @@
+<img src="https://beyondthestates.com/wp-content/uploads/2023/09/download.png" width=20% height=20%>
+
 # Computer Infrastructure
 
 ************************
@@ -12,6 +14,7 @@ This is the assessment repository for Computer Infrastructure module on Higher D
 
 This repository includes a Jupyter Notebook (weather.ipynb), `data` directory and other files that documents the process of completing Tasks 1 - 9 and Project for the assessment. The tasks involved creating directory structures, generating timestamps, downloading weather data, and managing files using command-line tools in a GitHub Codespace environment. Below is a summary of the notebook's content and the commands used.
 
+
 ## Requirements 
 
 - Access to GitHub Codespaces with Bash enabled.
@@ -19,6 +22,34 @@ This repository includes a Jupyter Notebook (weather.ipynb), `data` directory an
 - Basic understanding of Bash commands and file operations.
 
 - Internet connection for downloading data using `wget`.
+
+## GitHub Codespaces 
+
+GitHub Codespaces is a cloud-based integrated development environment (IDE) that provides their users with a fully configured and customizable coding workspace, that is accessible from anywhere. It is tightly integrated with GitHub, allowing developers to easily spin up development environments for their repositories with minimal setup. The codespace can be created directly from user GitHub repository and it has a monthly number of hours of free use. 
+
+GitHub Account: You need a GitHub account. If you don't have one, create it at [GitHub](https://github.com/).
+
+### How to open GitHub Codespaces:
+
+- You can open any GitHub repository in Codespaces. You can create a new repository on GitHub or see existing project like mine below.
+- Copy the repository by clicking this button: <button onclick="navigator.clipboard.writeText('https://github.com/mondbr/computer_infrastructure')">Click to Copy Link</button> and paste in your browser
+- Click on the green `<>Code` button
+- Select `Create codespace on main` 
+
+<img src="/workspaces/computer_infrastructure/codespaces.png" width=20% height=20%> 
+
+- This will open a new cloud-based development environment in your browser. You can interact with it just like a local development environment:
+
+    -   Write Code: Use the built-in editor (VS Code) to write, edit, and       manage your code.
+    -   Run Code: Open a terminal in your Codespace and run your application just as you would locally.
+
+    -   Version Control: You can commit changes and push them back to GitHub directly from the Codespace. Git and GitHub integration is built-in, allowing easy management of your source code.
+
+Before exiting your Codespace, ensure all your changes are committed and pushed to the repository. 
+
+you can stop a Codespace by going to your GitHub account, navigating to *Settings > Codespaces*, and selecting the *Stop* option for your active Codespace. This will save your work and stop the environment, and you can resume later.
+
+You can restart your Codespace at any time from the GitHub repository page. Go to the Code button again and select *Reopen in Codespaces*.
 
 ## Task Summary 
 ### Task 1: Create Directory Structure
@@ -105,21 +136,24 @@ This ensures each file is uniquely named with a timestamp.
 
 - **Summary of actions**:
 
-1. Create GitHub Actions Workflow:
+1. Creating GitHub Actions Workflow:
     - In my repository, I created a `.github/workflows/` folder
     - Inside this folder, I created a file named `weather-data.yml` to define the GitHub Actions workflow.
-2. Set Daily Run at 10am:
+2. Setting Daily Run at 10am:
     - I used the `schedule` event with `cron` to run the script once a day at 10am.
     - I added the `workflow_dispatch` event to allow manual testing of the workflow.
-3. Use Ubuntu Virtual Machine:
-    - In the workflow file, I specified an Ubuntu virtual machine `(ubuntu-latest)` to run the action.
-4. Clone the Repository:
-    - Adding a step in the workflow to clone your repository. 
-5. Execute the `weather.sh` script:
-    - Adding a step to run `weather.sh` script within the workflow ensuring it is executable by `chmod +x weather.sh` .
-6. Commit and Push Changes:
-    - I used `env` and `GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` to authenticate and interact with the repository. The token is stored as a secret in the GitHub repository settings to keep it secure.
-    - `git config`, `git add .`, `git commit - m` and `git push` automates the process of committing and pushing changes to your repository if any new changes have been made (e.g., updates to the weather data).
+3. Setting up the permissions:
+    - The workflow grants write permissions to the repository contents `(contents: write)` so that it can push changes back to the repository if any modifications occur during the script execution.
+4. Using Ubuntu Virtual Machine:
+    - In the workflow file, I specified an Ubuntu virtual machine `(ubuntu-latest)` to run the action `run-weather-script`
+5. Setting up the steps:
+    - **Step 1.** Checking `wget` and `curl` versions (which are usually pre-installed on Ubuntu systems), to confirm that they are available.
+    - **Step 2.** Using the `actions/checkout@v4 action` to check out the repository's code, making the repository's files accessible to the workflow.
+    - **Step 3.** Executing the `weather.sh` script: Adding a step to run `weather.sh` script within the workflow ensuring it is executable by `chmod +x weather.sh`. 
+    The script is then executed `(./weather.sh)` to download and save data.
+    - **Step 4.** Commiting and Push Changes: I used `env` and `GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` to authenticate and interact with the repository. The token is stored as a secret in the GitHub repository settings to keep it secure.
+    `git config`, `git add .`, `git commit - m` and `git push` automates the process of committing and pushing changes to your repository if any new changes have been made (e.g., updates to the weather data).
+
 
 
 ## Key Learnings and Notes
