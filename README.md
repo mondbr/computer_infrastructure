@@ -32,7 +32,7 @@ GitHub Account: You need a GitHub account. If you don't have one, create it at [
 ### How to open GitHub Codespaces:
 
 - You can open any GitHub repository in Codespaces. You can create a new repository on GitHub or see existing project like mine below.
-- Copy the repository by clicking this button: <button onclick="navigator.clipboard.writeText('https://github.com/mondbr/computer_infrastructure')">Click to Copy Link</button> and paste in your browser
+- Copy the repository from [here](https://github.com/mondbr/computer_infrastructure) and paste in your browser
 - Click on the green `<>Code` button
 - Select `Create codespace on main` 
 
@@ -47,7 +47,7 @@ GitHub Account: You need a GitHub account. If you don't have one, create it at [
 
 Before exiting your Codespace, ensure all your changes are committed and pushed to the repository. 
 
-you can stop a Codespace by going to your GitHub account, navigating to *Settings > Codespaces*, and selecting the *Stop* option for your active Codespace. This will save your work and stop the environment, and you can resume later.
+You can stop a Codespace by going to your GitHub account, navigating to *Settings > Codespaces*, and selecting the *Stop* option for your active Codespace. This will save your work and stop the environment, and you can resume later.
 
 You can restart your Codespace at any time from the GitHub repository page. Go to the Code button again and select *Reopen in Codespaces*.
 
@@ -131,6 +131,7 @@ This ensures each file is uniquely named with a timestamp.
 
 
 ### Project
+***
 - **Goal**: Automate the `weather.sh` script using GitHub Actions:
 - **Commands used**: Full details are available in [weather-data.yml](https://github.com/mondbr/computer_infrastructure/blob/main/.github/workflows/weather-data.yml). 
 
@@ -147,9 +148,9 @@ This ensures each file is uniquely named with a timestamp.
 4. Using Ubuntu Virtual Machine:
     - In the workflow file, I specified an Ubuntu virtual machine `(ubuntu-latest)` to run the action `run-weather-script`
 5. Setting up the steps:
-    - **Step 1.** Checking `wget` and `curl` versions (which are usually pre-installed on Ubuntu systems), to confirm that they are available.
-    - **Step 2.** Using the `actions/checkout@v4 action` to check out the repository's code, making the repository's files accessible to the workflow.
-    - **Step 3.** Executing the `weather.sh` script: Adding a step to run `weather.sh` script within the workflow ensuring it is executable by `chmod +x weather.sh`. 
+    - **Step 1.** I checked `wget` and `curl` versions (which are usually pre-installed on Ubuntu systems), to confirm that they are available.
+    - **Step 2.** I used the `actions/checkout@v4 action` to check out the repository's code, making the repository's files accessible to the workflow.
+    - **Step 3.** Executing the `weather.sh` script: I added a step to run `weather.sh` script within the workflow ensuring it is executable by `chmod +x weather.sh`. 
     The script is then executed `(./weather.sh)` to download and save data.
     - **Step 4.** Commiting and Push Changes: I used `env` and `GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` to authenticate and interact with the repository. The token is stored as a secret in the GitHub repository settings to keep it secure.
     `git config`, `git add .`, `git commit - m` and `git push` automates the process of committing and pushing changes to your repository if any new changes have been made (e.g., updates to the weather data).
