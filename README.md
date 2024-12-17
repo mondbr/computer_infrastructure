@@ -126,7 +126,7 @@ This ensures each file is uniquely named with a timestamp.
 
 
 ### Task 9: pandas
-- **Goal**: Using `pandas` function to load the data, summarise and examine it. 
+- **Goal**: Using `pandas` function to load the data, summarize and examine it. 
 - **Commands used**: Full details are available in the [weather.ipynb](https://github.com/mondbr/computer_infrastructure/blob/main/weather.ipynb) notebook.
 
 
@@ -152,7 +152,7 @@ This ensures each file is uniquely named with a timestamp.
     - **Step 2.** I used the `actions/checkout@v4 action` to check out the repository's code, making the repository's files accessible to the workflow.
     - **Step 3.** Executing the `weather.sh` script: I added a step to run `weather.sh` script within the workflow ensuring it is executable by `chmod +x weather.sh`. 
     The script is then executed `(./weather.sh)` to download and save data.
-    - **Step 4.** Commiting and Push Changes: I used `env` and `GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` to authenticate and interact with the repository. The token is stored as a secret in the GitHub repository settings to keep it secure.
+    - **Step 4.** Commit and Push Changes: I used `env` and `GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}` to authenticate and interact with the repository. The token is stored as a secret in the GitHub repository settings to keep it secure.
     `git config`, `git add .`, `git commit - m` and `git push` automates the process of committing and pushing changes to your repository if any new changes have been made (e.g., updates to the weather data).
 
 
